@@ -1,0 +1,690 @@
+:root {
+    --red: #b31320;
+    --gold: #d5a653;
+    --paper: #d8c49b;
+    --dark: #090706;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--dark);
+    color: #e8dfcc;
+    font-family: "Special Elite", monospace;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 10;
+    opacity: 0.12;
+    background: repeating-linear-gradient(transparent 0px,
+            transparent 3px,
+            #ffffff 4px);
+}
+
+.fog {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.15;
+    z-index: -1;
+    background:
+        radial-gradient(ellipse at 20% 30%, #777 0%, transparent 45%),
+        radial-gradient(ellipse at 80% 70%, #541015 0%, transparent 40%);
+    animation: fogMove 15s infinite alternate ease-in-out;
+}
+
+@keyframes fogMove {
+    from {
+        transform: translateX(-5%) scale(1);
+    }
+
+    to {
+        transform: translateX(5%) scale(1.2);
+    }
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 22px 6%;
+    border-bottom: 1px solid #4c2920;
+    background: rgba(8, 6, 5, 0.94);
+}
+
+.logo {
+    color: var(--gold);
+    font-family: "Pirata One", cursive;
+    font-size: 23px;
+}
+
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+nav a {
+    color: #d4c7ad;
+    text-decoration: none;
+    font-size: 12px;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: var(--red);
+}
+
+button,
+.btn {
+    cursor: pointer;
+    border: 1px solid var(--red);
+    background: var(--red);
+    color: white;
+    padding: 13px 20px;
+    font-family: inherit;
+    text-decoration: none;
+    font-size: 12px;
+    letter-spacing: 1px;
+    transition: 0.3s;
+}
+
+button:hover,
+.btn:hover {
+    background: #650b12;
+    box-shadow: 0 0 25px #a5101e66;
+    transform: translateY(-2px);
+}
+
+#soundBtn {
+    white-space: nowrap;
+    padding: 10px 12px;
+}
+
+.hero {
+    min-height: 85vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 90px 20px;
+    background:
+        radial-gradient(ellipse at center, #45100e44, transparent 65%);
+}
+
+.skull {
+    font-size: 70px;
+    color: var(--gold);
+    animation: float 3s infinite ease-in-out;
+    text-shadow: 0 0 30px #a3131b;
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-12px);
+    }
+}
+
+.eyebrow {
+    color: var(--gold);
+    font-size: 11px;
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+}
+
+h1,
+h2,
+h3 {
+    font-family: "Pirata One", cursive;
+    font-weight: normal;
+}
+
+h1 {
+    font-size: clamp(42px, 8vw, 90px);
+    line-height: 1.05;
+    margin: 20px 0;
+    text-shadow: 4px 4px #000;
+}
+
+h1 span,
+h2 span {
+    color: var(--red);
+}
+
+.subtitle {
+    max-width: 620px;
+    line-height: 1.8;
+    color: #bcb09c;
+    margin-bottom: 30px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.secondary {
+    background: transparent;
+    border-color: var(--gold);
+    color: var(--gold);
+}
+
+.warning {
+    color: #b34c4c;
+    font-size: 10px;
+    margin-top: 35px;
+    letter-spacing: 1px;
+}
+
+.ticker {
+    overflow: hidden;
+    white-space: nowrap;
+    background: #760d14;
+    padding: 15px 0;
+    color: #fff0d1;
+    font-size: 12px;
+}
+
+.ticker div {
+    display: inline-block;
+    animation: tickerMove 25s linear infinite;
+}
+
+@keyframes tickerMove {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+.section {
+    max-width: 1100px;
+    margin: auto;
+    padding: 100px 25px;
+    scroll-margin-top: 30px;
+}
+
+.section h2 {
+    font-size: clamp(35px, 5vw, 55px);
+    margin-bottom: 35px;
+}
+
+.paper {
+    color: #241a10;
+    background:
+        linear-gradient(#d8c49be8, #c8b185ed),
+        repeating-linear-gradient(0deg, transparent 0 25px, #6a452022 26px);
+    padding: 35px;
+    line-height: 1.9;
+    border: 5px double #604626;
+    box-shadow: 0 15px 50px #000;
+    transform: rotate(-0.5deg);
+}
+
+.signature {
+    text-align: right;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.card {
+    padding: 30px;
+    border: 1px solid #493028;
+    background: linear-gradient(145deg, #17100d, #0c0908);
+    transition: 0.3s;
+}
+
+.card:hover {
+    border-color: var(--red);
+    transform: translateY(-6px);
+    box-shadow: 0 10px 35px #a3131b22;
+}
+
+.icon {
+    font-size: 35px;
+    margin-bottom: 15px;
+}
+
+.card h3,
+.notice h3 {
+    color: var(--gold);
+    font-size: 27px;
+    margin-bottom: 12px;
+}
+
+.card p,
+.notice p {
+    color: #b9ad99;
+    line-height: 1.8;
+    font-size: 13px;
+}
+
+.card span,
+.notice span {
+    display: block;
+    color: #a54242;
+    font-size: 10px;
+    margin-top: 20px;
+    letter-spacing: 1px;
+}
+
+.admission-box {
+    max-width: 650px;
+    margin: auto;
+    text-align: center;
+}
+
+#admissionForm {
+    display: grid;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+#admissionForm input,
+#admissionForm select {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid #8d7049;
+    background: #ead9b8;
+    color: #241a10;
+    font-family: inherit;
+}
+
+#admissionMessage {
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+.notices {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.notice {
+    padding: 25px;
+    background: #130e0c;
+    border-left: 3px solid var(--red);
+}
+
+.notice h3 {
+    margin-top: 15px;
+}
+
+footer {
+    padding: 70px 20px;
+    border-top: 1px solid #493028;
+    background: #050403;
+    text-align: center;
+}
+
+.footer-skull {
+    color: var(--red);
+    font-size: 50px;
+    margin-bottom: 20px;
+}
+
+footer h2 {
+    color: var(--gold);
+    font-size: clamp(22px, 4vw, 35px);
+    margin-bottom: 20px;
+}
+
+footer p {
+    color: #827665;
+    font-size: 11px;
+    margin-top: 10px;
+}
+
+#ghost {
+    position: fixed;
+    bottom: 20px;
+    left: -100px;
+    font-size: 50px;
+    z-index: 20;
+    pointer-events: none;
+    opacity: 0;
+}
+
+#ghost.appear {
+    animation: ghostWalk 5s linear forwards;
+}
+
+@keyframes ghostWalk {
+    0% {
+        left: -100px;
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 0.9;
+    }
+
+    80% {
+        opacity: 0.9;
+    }
+
+    100% {
+        left: 110%;
+        opacity: 0;
+    }
+}
+
+@media (max-width: 760px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav {
+        justify-content: center;
+    }
+
+    .cards,
+    .notices {
+        grid-template-columns: 1fr;
+    }
+
+    .section {
+        padding: 70px 20px;
+    }
+
+    .paper {
+        padding: 22px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* ===== FUNCTIONAL PIRATE GUILDS ===== */
+
+.card {
+    cursor: pointer;
+    position: relative;
+}
+
+.card:focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: 4px;
+}
+
+.guild-btn {
+    display: block;
+    margin-top: 22px;
+    width: 100%;
+    background: transparent;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+}
+
+.guild-btn:hover {
+    background: var(--gold);
+    color: #090706;
+    box-shadow: 0 0 20px #d5a65344;
+}
+
+/* Popup backdrop */
+
+.guild-modal[hidden] {
+    display: none !important;
+}
+
+.guild-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.88);
+    backdrop-filter: blur(8px);
+}
+
+/* Popup itself */
+
+.guild-modal-content {
+    position: relative;
+    width: 100%;
+    max-width: 560px;
+    max-height: 85vh;
+    overflow-y: auto;
+    padding: 35px;
+    text-align: center;
+    color: #e8dfcc;
+    background:
+        linear-gradient(145deg, #20130e, #090706);
+    border: 2px solid var(--gold);
+    box-shadow: 0 0 50px #b3132044;
+    animation: guildAppear 0.3s ease-out;
+}
+
+@keyframes guildAppear {
+    from {
+        opacity: 0;
+        transform: scale(0.9) translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+.close-guild {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    padding: 8px 12px;
+    background: transparent;
+    border-color: #65432c;
+    color: var(--gold);
+}
+
+.guild-modal-icon {
+    font-size: 55px;
+    margin: 15px 0;
+}
+
+.guild-modal-content h2 {
+    color: var(--gold);
+    font-size: clamp(30px, 6vw, 45px);
+    margin-bottom: 18px;
+}
+
+.guild-modal-content>p:not(.eyebrow) {
+    line-height: 1.8;
+    color: #c8b99e;
+    margin-bottom: 20px;
+}
+
+.guild-modal-content h3 {
+    color: var(--red);
+    font-size: 24px;
+    margin: 25px 0 15px;
+}
+
+#guildCourses {
+    list-style: none;
+    text-align: left;
+    margin-bottom: 25px;
+}
+
+#guildCourses li {
+    padding: 12px;
+    margin-bottom: 8px;
+    background: #ffffff08;
+    border-left: 2px solid var(--gold);
+    color: #d8cbb5;
+    line-height: 1.5;
+}
+
+.guild-fact {
+    padding: 15px;
+    border: 1px dashed #8d7049;
+    font-style: italic;
+}
+
+#chooseGuild {
+    width: 100%;
+    margin-top: 10px;
+}
+
+@media (max-width: 500px) {
+    .guild-modal-content {
+        padding: 28px 20px;
+    }
+}
+/* ===== CURSED ADMISSION CERTIFICATE ===== */
+
+#admissionMessage {
+    margin-top: 20px;
+    color: var(--gold);
+    line-height: 1.8;
+}
+
+.certificate[hidden] {
+    display: none !important;
+}
+
+.certificate {
+    margin-top: 30px;
+    padding: 30px 22px;
+    color: #291b0d;
+    background:
+        repeating-linear-gradient(
+            0deg,
+            transparent 0 25px,
+            #60462612 26px
+        ),
+        linear-gradient(135deg, #e8d5aa, #bfa06a);
+    border: 8px double #604626;
+    box-shadow: 0 0 35px #b3132055;
+    animation: certificateReveal 0.8s ease-out;
+}
+
+@keyframes certificateReveal {
+    0% {
+        opacity: 0;
+        transform: scale(0.8) rotate(-3deg);
+    }
+
+    70% {
+        opacity: 1;
+        transform: scale(1.03) rotate(1deg);
+    }
+
+    100% {
+        transform: scale(1) rotate(0);
+    }
+}
+
+.certificate-skull {
+    font-size: 48px;
+    color: #8c1019;
+    margin-bottom: 10px;
+}
+
+.certificate-label {
+    font-size: 12px;
+    letter-spacing: 4px;
+    font-weight: bold;
+}
+
+.certificate h2 {
+    font-size: clamp(28px, 6vw, 42px);
+    margin: 18px 0;
+    color: #7d1017;
+}
+
+.certificate-divider {
+    margin: 20px 0;
+    color: #8c1019;
+}
+
+.certificate-name {
+    font-family: "Pirata One", cursive;
+    font-size: 35px;
+    overflow-wrap: anywhere;
+    margin: 15px 0;
+}
+
+.certificate h3 {
+    font-size: 28px;
+    margin: 15px 0;
+}
+
+.certificate-id {
+    margin: 20px 0;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+#certificateCurse {
+    padding: 15px;
+    margin: 20px 0;
+    border-top: 1px dashed #604626;
+    border-bottom: 1px dashed #604626;
+    font-style: italic;
+    line-height: 1.8;
+}
+
+.certificate-signature {
+    text-align: right;
+    font-family: "Pirata One", cursive;
+    font-size: 23px;
+    margin: 25px 0;
+}
+
+#downloadCertificate {
+    width: 100%;
+    color: white;
+}
+
+@media (max-width: 500px) {
+    .certificate {
+        padding: 25px 15px;
+        border-width: 5px;
+    }
+}

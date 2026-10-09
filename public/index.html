@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Black Pearl University ☠️</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Pirata+One&family=Special+Elite&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="fog"></div>
+
+    <header>
+        <div class="logo">☠ BLACK PEARL UNIVERSITY</div>
+
+        <nav>
+            <a href="#about">The Crew</a>
+            <a href="#departments">Departments</a>
+            <a href="#admission">Admissions</a>
+            <a href="#notices">Notices</a>
+        </nav>
+
+        <button id="soundBtn" onclick="toggleSound()">🔇 Sound OFF</button>
+    </header>
+
+    <section class="hero">
+        <div class="skull">☠</div>
+
+        <p class="eyebrow">⚓ EST. 1692 — NO REFUNDS AFTER DEATH ⚓</p>
+
+        <h1>WELCOME ABOARD,<br>
+            <span>YOU POOR SOUL.</span>
+        </h1>
+
+        <p class="subtitle">
+            Where dreams are buried, attendance is a crime,
+            and the principal knows where the bodies are.
+        </p>
+
+        <div class="hero-buttons">
+            <a href="#admission" class="btn">JOIN THE CREW 🏴‍☠️</a>
+            <a href="#notices" class="btn secondary">READ YOUR FATE 📜</a>
+        </div>
+
+        <p class="warning">⚠️ WARNING: ESCAPE ATTEMPTS WILL AFFECT YOUR INTERNAL MARKS.</p>
+    </section>
+
+    <div class="ticker">
+        <div>
+            ☠ ATTENDANCE BELOW 75%? WALK THE PLANK! ☠
+            &nbsp;&nbsp;&nbsp; ⚓ EXAMS APPROACHING ⚓
+            &nbsp;&nbsp;&nbsp; 💀 THE CANTEEN FOOD IS STILL ALIVE 💀
+            &nbsp;&nbsp;&nbsp; ☠ ATTENDANCE BELOW 75%? WALK THE PLANK! ☠
+        </div>
+    </div>
+
+    <section id="about" class="section">
+        <p class="eyebrow">01 / OUR LEGEND</p>
+        <h2>ABOUT THE <span>SHIPWRECK</span></h2>
+
+        <div class="paper">
+            <p>
+                Welcome to Black Pearl University, the world's most suspicious
+                institution of higher education. Our graduates sail into the
+                world with questionable skills, legendary excuses, and
+                student loans heavier than pirate treasure chests.
+            </p>
+
+            <p>
+                Our mission? To educate the brave, confuse the innocent,
+                and make sure nobody graduates without at least one
+                emotional breakdown.
+            </p>
+
+            <p class="signature">— Captain Principal Blackbeard 🖋️</p>
+        </div>
+    </section>
+
+    <section id="departments" class="section">
+        <p class="eyebrow">02 / CHOOSE YOUR DESTINY</p>
+        <h2>OUR PIRATE <span>GUILDS</span></h2>
+
+        <div class="cards">
+
+            <article class="card" tabindex="0" role="button" data-guild="computer">
+                <div class="icon">💻</div>
+                <h3>Computer Sorcery</h3>
+                <p>Summon bugs. Fight deadlines. Blame the compiler.</p>
+                <span>STATUS: DEBUGGING SINCE 1692</span>
+                <button class="guild-btn" type="button">EXPLORE GUILD →</button>
+            </article>
+
+            <article class="card" tabindex="0" role="button" data-guild="mechanical">
+                <div class="icon">⚙️</div>
+                <h3>Mechanical Mayhem</h3>
+                <p>We fix engines. Sometimes we accidentally invent new problems.</p>
+                <span>STATUS: UNDER REPAIR</span>
+                <button class="guild-btn" type="button">EXPLORE GUILD →</button>
+            </article>
+
+            <article class="card" tabindex="0" role="button" data-guild="electrical">
+                <div class="icon">⚡</div>
+                <h3>Electrical Witchcraft</h3>
+                <p>Playing with electricity since before safety regulations existed.</p>
+                <span>STATUS: HIGH VOLTAGE</span>
+                <button class="guild-btn" type="button">EXPLORE GUILD →</button>
+            </article>
+
+            <article class="card" tabindex="0" role="button" data-guild="arts">
+                <div class="icon">📚</div>
+                <h3>Arts of Deception</h3>
+                <p>Master the ancient art of writing 10 pages without answering.</p>
+                <span>STATUS: EXAM MODE</span>
+                <button class="guild-btn" type="button">EXPLORE GUILD →</button>
+            </article>
+
+        </div>
+
+        <!-- Guild details popup -->
+        <div id="guildModal" class="guild-modal" role="dialog" aria-modal="true" aria-labelledby="guildTitle" hidden>
+
+            <div class="guild-modal-content">
+
+                <button id="closeGuild" class="close-guild" type="button" aria-label="Close popup">✕</button>
+
+                <p class="eyebrow">⚓ CLASSIFIED PIRATE RECORD ⚓</p>
+
+                <div id="guildIcon" class="guild-modal-icon">☠️</div>
+
+                <h2 id="guildTitle">Guild Name</h2>
+
+                <p id="guildDescription"></p>
+
+                <h3>YOUR TRAINING MANIFEST</h3>
+                <ul id="guildCourses"></ul>
+
+                <p id="guildFact" class="guild-fact"></p>
+
+                <button id="chooseGuild" class="btn" type="button">
+                    JOIN THIS GUILD ☠️
+                </button>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="admission" class="section">
+        <p class="eyebrow">03 / THERE IS NO ESCAPE</p>
+        <h2>JOIN THE <span>CREW</span></h2>
+
+        <div class="paper admission-box">
+            <p>Think you have what it takes to survive four years at sea?</p>
+
+            <form id="admissionForm">
+                <input id="studentName" type="text" placeholder="Your mortal name..." required>
+
+                <input id="studentEmail" type="email" placeholder="Your pigeon-mail address..." required>
+
+                <select id="studentDepartment" required>
+                    <option value="">Choose your guild...</option>
+                    <option>Computer Sorcery</option>
+                    <option>Mechanical Mayhem</option>
+                    <option>Electrical Witchcraft</option>
+                    <option>Arts of Deception</option>
+                </select>
+
+                <button class="btn" type="submit">SIGN YOUR SOUL ☠️</button>
+            </form>
+
+            <div id="admissionMessage" aria-live="polite"></div>
+
+<div id="admissionCertificate" class="certificate" hidden>
+    <div class="certificate-skull">☠</div>
+
+    <p class="certificate-label">BLACK PEARL UNIVERSITY</p>
+    <h2>THE SOUL CONTRACT</h2>
+
+    <div class="certificate-divider">⚓ ✦ ⚓</div>
+
+    <p>By the authority of Captain Blackbeard,</p>
+
+    <p class="certificate-name" id="certificateName"></p>
+
+    <p>has officially been recruited into</p>
+
+    <h3 id="certificateGuild"></h3>
+
+    <p class="certificate-id">
+        PIRATE ID: <span id="pirateId"></span>
+    </p>
+
+    <p id="certificateCurse"></p>
+
+    <p class="certificate-signature">
+        Signed in blood,<br>
+        Captain Blackbeard
+    </p>
+
+    <button id="downloadCertificate" type="button" class="btn">
+        📜 DOWNLOAD YOUR CONTRACT
+    </button>
+</div>
+        </div>
+    </section>
+
+    <section id="notices" class="section">
+        <p class="eyebrow">04 / MESSAGES FROM THE ABYSS</p>
+        <h2>NOTICE <span>BOARD</span></h2>
+
+        <div class="notices">
+
+            <div class="notice">
+                <span>URGENT · 03:00 AM</span>
+                <h3>📜 Principal Missing!</h3>
+                <p>The principal was last seen entering the examination hall.
+                    Nobody has returned.</p>
+            </div>
+
+            <div class="notice">
+                <span>ACADEMIC · TOMORROW</span>
+                <h3>💀 Surprise Examination</h3>
+                <p>Bring your pens, your notes, and your last remaining hope.</p>
+            </div>
+
+            <div class="notice">
+                <span>HOSTEL · IMMEDIATE</span>
+                <h3>👁 Something in Room 13</h3>
+                <p>Students are advised not to look under their beds tonight.</p>
+            </div>
+
+            <div class="notice">
+                <span>PLACEMENT CELL</span>
+                <h3>🏴‍☠️ Career Opportunities</h3>
+                <p>Experienced pirates wanted. Salary: 3 gold coins and a parrot.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-skull">☠</div>
+        <h2>NO REFUNDS. NO RESCUE. NO RE-ADMISSION.</h2>
+        <p>© 1692–2026 Black Pearl University · All souls reserved.</p>
+        <p>Built by pirates. Maintained by ghosts.</p>
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
